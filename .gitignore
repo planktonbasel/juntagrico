@@ -1,0 +1,13 @@
+*.sqlite
+venv
+env/*
+*.pyc
+static/*
+.idea
+*.bak
+ssl/*
+/.project
+*.db
+media/*
+__pycache__/*
+.env
