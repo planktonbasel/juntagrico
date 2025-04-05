@@ -13,8 +13,8 @@ SECRET_KEY = os.environ.get('JUNTAGRICO_SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['juntagrico-planktonbasel.retikolo.xyz', 'my.planktonbasel.ch']
-CSRF_TRUSTED_ORIGINS = ['https://juntagrico-planktonbasel.retikolo.xyz', 'https://my.planktonbasel.ch']
+ALLOWED_HOSTS = ['my.planktonbasel.ch']
+CSRF_TRUSTED_ORIGINS = ['https://my.planktonbasel.ch']
 
 INSTALLED_APPS = [
     'django.contrib.auth',
