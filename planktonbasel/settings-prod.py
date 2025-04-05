@@ -25,7 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'djrichtextfield',
-    'juntagrico_planktonbasel',
+    'planktonbasel',
     'juntagrico_billing',
     'juntagrico',
     'fontawesomefree',
