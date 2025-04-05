@@ -13,8 +13,8 @@ SECRET_KEY = os.environ.get('JUNTAGRICO_SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['my.planktonbasel.ch']
-CSRF_TRUSTED_ORIGINS = ['https://my.planktonbasel.ch']
+ALLOWED_HOSTS = ['planktonbasel.juntagrico.science', 'my.planktonbasel.ch']
+CSRF_TRUSTED_ORIGINS = ['https://planktonbasel.juntagrico.science', 'https://my.planktonbasel.ch']
 
 INSTALLED_APPS = [
     'django.contrib.auth',
@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'polymorphic',
 ]
 
-ROOT_URLCONF = 'juntagrico_planktonbasel.urls'
+ROOT_URLCONF = 'planktonbasel.urls'
 
 DATABASES = {
     'default': {
@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'juntagrico_planktonbasel.wsgi.application'
+WSGI_APPLICATION = 'planktonbasel.wsgi.application'
 
 
 LANGUAGE_CODE = 'de'
