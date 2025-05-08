@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'djrichtextfield',
-    'juntagrico_planktonbasel',
+    'planktonbasel',
     'juntagrico_billing',
     'juntagrico',
     'fontawesomefree',
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'polymorphic',
 ]
 
-ROOT_URLCONF = 'juntagrico_planktonbasel.urls'
+ROOT_URLCONF = 'planktonbasel.urls'
 
 DATABASES = {
     'default': {
@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.template.context_processors.request',
                 'django.contrib.messages.context_processors.messages',
+                'juntagrico.context_processors.vocabulary',
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
@@ -74,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'juntagrico_planktonbasel.wsgi.application'
+WSGI_APPLICATION = 'planktonbasel.wsgi.application'
 
 
 LANGUAGE_CODE = 'de'
