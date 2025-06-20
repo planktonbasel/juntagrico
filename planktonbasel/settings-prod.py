@@ -222,4 +222,4 @@ ORGANISATION_WEBSITE = {
 
 IMPORT_EXPORT_EXPORT_PERMISSION_CODE = 'view'
 
-#STYLES = {'static': ['/juntagrico-planktonbasel/css/customize.css']}
+# STYLES = {'static': ['/juntagrico-planktonbasel/css/customize.css']}

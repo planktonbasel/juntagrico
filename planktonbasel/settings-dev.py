@@ -13,12 +13,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('JUNTAGRICO_SECRET_KEY')
-CSRF_TRUSTED_ORIGINS = os.environ.get('JUNTAGRICO_ALLOWED_HOSTS', '')
 
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+CSRF_TRUSTED_ORIGINS = []
 
 # Application definition
 
@@ -111,7 +110,6 @@ MIDDLEWARE = [
     'django.contrib.sites.middleware.CurrentSiteMiddleware'
 ]
 
-STYLES = {'static': ['/static/demo/css/customize.css']}
 
 DJRICHTEXTFIELD_CONFIG = {
     'js': ['/static/juntagrico/external/tinymce/tinymce.min.js'],
@@ -131,6 +129,8 @@ EMAIL_HOST_PASSWORD = os.environ.get('JUNTAGRICO_EMAIL_PASSWORD')
 EMAIL_PORT = int(os.environ.get('JUNTAGRICO_EMAIL_PORT', '25' ))
 EMAIL_USE_TLS = os.environ.get('JUNTAGRICO_EMAIL_TLS', 'False')=='True'
 EMAIL_USE_SSL = os.environ.get('JUNTAGRICO_EMAIL_SSL', 'False')=='True'
+FROM_FILTER = ast.literal_eval(os.environ.get('JUNTAGRICO_FROM_FILTER'))
+DEFAULT_FROM_EMAIL = os.environ.get('JUNTAGRICO_DEFAULT_FROM')
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 STORAGES = {
@@ -170,7 +170,7 @@ LOGIN_REDIRECT_URL = "/"
 """
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
-MEDIA_ROOT = 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 """
      Crispy Settings
@@ -201,3 +201,5 @@ ORGANISATION_WEBSITE = {
 }
 
 IMPORT_EXPORT_EXPORT_PERMISSION_CODE = 'view'
+
+# STYLES = {'static': ['/juntagrico-planktonbasel/css/customize.css']}
