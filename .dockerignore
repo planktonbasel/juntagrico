@@ -1,5 +1,5 @@
 media/
 static/
-venv/
+.venv/
 .gitignore
 .devcontainer

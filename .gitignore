@@ -1,5 +1,5 @@
 *.sqlite
-venv
+.venv/*
 env/*
 *.pyc
 static/*
