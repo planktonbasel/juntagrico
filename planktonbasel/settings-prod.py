@@ -193,12 +193,12 @@ ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 """
-     Crispy Settings
+    Crispy Settings
 """
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 """
-     juntagrico Settings
+    juntagrico Settings
 """
 ORGANISATION_NAME = os.environ.get('ORGANISATION_NAME')
 ORGANISATION_LONG_NAME = os.environ.get('ORGANISATION_LONG_NAME')
@@ -222,4 +222,13 @@ ORGANISATION_WEBSITE = {
 
 IMPORT_EXPORT_EXPORT_PERMISSION_CODE = 'view'
 
-# STYLES = {'static': ['/juntagrico-planktonbasel/css/customize.css']}
+STYLES = {'static': ['juntagrico-planktonbasel/css/customize.css']}
+
+# Staging
+if os.environ.get('JUNTAGRICO_STAGING') == '1':
+    # staging URL erlauben
+    ALLOWED_HOSTS.append('planktonbasel-staging.juntagrico.science')
+    # E-Mails Deaktivieren
+    EMAIL_BACKEND = "django.core.mail.backends.dummy.EmailBackend"
+    # Style
+    STYLES['static'].append('juntagrico-planktonbasel/css/staging.css')

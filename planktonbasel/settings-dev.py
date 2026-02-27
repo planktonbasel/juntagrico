@@ -173,12 +173,12 @@ ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 """
-     Crispy Settings
+    Crispy Settings
 """
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 """
-     juntagrico Settings
+    juntagrico Settings
 """
 ORGANISATION_NAME = os.environ.get('ORGANISATION_NAME')
 ORGANISATION_LONG_NAME = os.environ.get('ORGANISATION_LONG_NAME')
@@ -202,4 +202,9 @@ ORGANISATION_WEBSITE = {
 
 IMPORT_EXPORT_EXPORT_PERMISSION_CODE = 'view'
 
-# STYLES = {'static': ['/juntagrico-planktonbasel/css/customize.css']}
+STYLES = {'static': ['juntagrico-planktonbasel/css/customize.css']}
+
+"""
+    DEV settings
+"""
+STYLES['static'].append('juntagrico-planktonbasel/css/dev.css')
