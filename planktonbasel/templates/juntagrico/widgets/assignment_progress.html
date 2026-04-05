@@ -1,0 +1,14 @@
+{% extends 'juntagrico/widgets/assignment_progress.html' %}
+{% load juntagrico.config %}
+{% load utils %}
+
+{% block progress %}
+    {% assignment_progress request.user.member future=True as assignments %}
+    {% include "./assignment_progress/bars.html" %}
+    {% config 'assignment_unit' as unit %}
+    {% if unit == 'HOURS' %}
+        {% include "./assignment_progress/text_hours.html" %}
+    {% else %}
+        {% include "./assignment_progress/text.html" %}
+    {% endif %}
+{% endblock %}
