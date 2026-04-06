@@ -13,13 +13,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import include
-from django.urls import re_path
+from django.urls import path
 from django.contrib import admin
 
+from planktonbasel import views
+
 urlpatterns = [
-    re_path(r'^admin/', admin.site.urls),
-    re_path(r'^djrichtextfield/', include('djrichtextfield.urls')),
-    re_path(r'^', include('juntagrico.urls')),
-    re_path(r'^', include('juntagrico_billing.urls')),
-    re_path(r'^impersonate/', include('impersonate.urls')),
+    path('admin/', admin.site.urls),
+    path('djrichtextfield/', include('djrichtextfield.urls')),
+    path('my/subscription/<int:subscription_id>/', views.single, name='subscription-single'),
+    path('', include('juntagrico.urls')),
+    path('', include('juntagrico_billing.urls')),
+    path('impersonate/', include('impersonate.urls')),
 ]
