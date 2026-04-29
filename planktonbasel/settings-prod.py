@@ -5,6 +5,8 @@ Django settings for demo project.
 import os
 import ast
 
+from juntagrico import defaults
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,12 +30,14 @@ INSTALLED_APPS = [
     'planktonbasel',
     'juntagrico_billing',
     'juntagrico',
-    'fontawesomefree',
     'import_export',
     'impersonate',
     'crispy_forms',
     'adminsortable2',
     'polymorphic',
+    'crispy_bootstrap4',
+    'django_select2',
+    'djrichtextfield',
 ]
 
 ROOT_URLCONF = 'planktonbasel.urls'
@@ -109,15 +113,11 @@ MIDDLEWARE = [
     'django.contrib.sites.middleware.CurrentSiteMiddleware'
 ]
 
-DJRICHTEXTFIELD_CONFIG = {
-    'js': ['/static/juntagrico/external/tinymce/tinymce.min.js'],
-    'init_template': 'djrichtextfield/init/tinymce.js',
-    'settings': {
-        'menubar': False,
-        'plugins': 'link  lists',
-        'toolbar': 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | bullist numlist | link'
-    }
-}
+DJRICHTEXTFIELD_CONFIG = defaults.richtextfield_config(LANGUAGE_CODE, admin={
+    'menubar': False,
+    'plugins': 'link  lists',
+    'toolbar': 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | bullist numlist | link'
+})
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
@@ -142,6 +142,7 @@ LOGGING = {
     },
 }
 
+EMAIL_BACKEND='juntagrico.backends.email.EmailBackend'
 EMAIL_HOST = os.environ.get('JUNTAGRICO_EMAIL_HOST')
 EMAIL_HOST_USER = os.environ.get('JUNTAGRICO_EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('JUNTAGRICO_EMAIL_PASSWORD')
@@ -151,7 +152,6 @@ EMAIL_USE_SSL = os.environ.get('JUNTAGRICO_EMAIL_SSL', 'False')=='True'
 FROM_FILTER = ast.literal_eval(os.environ.get('JUNTAGRICO_FROM_FILTER'))
 DEFAULT_FROM_EMAIL = os.environ.get('JUNTAGRICO_DEFAULT_FROM')
 
-SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",

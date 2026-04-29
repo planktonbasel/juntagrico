@@ -20,7 +20,6 @@ from planktonbasel import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('djrichtextfield/', include('djrichtextfield.urls')),
     path('my/subscription/<int:subscription_id>/', views.single, name='subscription-single'),
     path('', include('juntagrico.urls')),
     path('', include('juntagrico_billing.urls')),
