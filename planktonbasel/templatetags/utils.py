@@ -7,7 +7,7 @@ from juntagrico.templatetags.juntagrico import widgets
 @register.simple_tag
 def assignment_progress(member, future=None, start=None, end=None, subscription=None):
     sub = subscription or member.subscription_current
-    if sub.activation_date.year < 2026:
+    if sub is not None and sub.activation_date.year < 2026:
         today = datetime.date.today()
         if today < datetime.date(2026, 5, 1):
             start = datetime.date(2025, 5, 1)

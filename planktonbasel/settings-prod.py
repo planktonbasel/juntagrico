@@ -193,12 +193,12 @@ ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 """
-     Crispy Settings
+    Crispy Settings
 """
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 """
-     juntagrico Settings
+    juntagrico Settings
 """
 ORGANISATION_NAME = os.environ.get('ORGANISATION_NAME')
 ORGANISATION_LONG_NAME = os.environ.get('ORGANISATION_LONG_NAME')
@@ -208,6 +208,7 @@ SHARE_PRICE = os.environ.get('SHARE_PRICE')
 ENABLE_SHARES = os.environ.get('ENABLE_SHARES')
 BUSINESS_YEAR_START = ast.literal_eval(os.environ.get('BUSINESS_YEAR_START'))
 BUSINESS_YEAR_CANCELATION_MONTH = int(os.environ.get('BUSINESS_YEAR_CANCELATION_MONTH'))
+MEMBERSHIP_END_MONTH = int(os.environ.get('MEMBERSHIP_END_MONTH'))
 
 ENABLE_REGISTRATION = False
 
@@ -222,4 +223,13 @@ ORGANISATION_WEBSITE = {
 
 IMPORT_EXPORT_EXPORT_PERMISSION_CODE = 'view'
 
-# STYLES = {'static': ['/juntagrico-planktonbasel/css/customize.css']}
+STYLES = {'static': ['juntagrico-planktonbasel/css/customize.css']}
+
+# Staging
+if os.environ.get('JUNTAGRICO_STAGING') == '1':
+    # staging URL erlauben
+    ALLOWED_HOSTS.append('planktonbasel-staging.juntagrico.science')
+    # E-Mails Deaktivieren
+    EMAIL_BACKEND = "django.core.mail.backends.dummy.EmailBackend"
+    # Style
+    STYLES['static'].append('juntagrico-planktonbasel/css/staging.css')

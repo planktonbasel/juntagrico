@@ -10,13 +10,14 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 # 2. Create virtualenv with auto-downloaded Python (reads .python-version)
 uv venv
 
-# 3. Install from requirements.txt into the venv
-uv pip install -r requirements.txt
+# 3. Install from requirements-dev.txt into the venv
+uv pip install -r requirements-dev.txt
 
 # 4. Run Django (uv detects and uses the .venv automatically)
 ```
 DJANGO_SETTINGS_MODULE=planktonbasel.settings-dev uv run python manage.py migrate
 First Time: DJANGO_SETTINGS_MODULE=planktonbasel.settings-dev uv run python -m manage createadmin
+First Time: DJANGO_SETTINGS_MODULE=planktonbasel.settings-dev uv run python -m manage generate_testdata
 DJANGO_SETTINGS_MODULE=planktonbasel.settings-dev uv run python manage.py collectstatic --noinput
 DJANGO_SETTINGS_MODULE=planktonbasel.settings-dev uv run python manage.py runserver
 ```

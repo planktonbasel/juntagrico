@@ -1,6 +1,7 @@
 .juntagrico-logo {
-    /* uncomment the next line and add your logo in the img folder */
+    background: url(/static/juntagrico-planktonbasel/img/plankton_logo.png) 0 0;
     background-size: contain;
+    background-repeat: no-repeat;
     display: inline-block;
     width: 580px;
     height: 161px;
