@@ -34,7 +34,7 @@ def single(request, subscription_id=None):
         elif today < datetime.date(2027, 1, 1):
             date_range = {
                 'start': datetime.date(2026, 5, 1),
-                'end': datetime.date(2026, 12, 1),
+                'end': datetime.date(2026, 12, 31),
             }
 
     # count assignments of subscription
